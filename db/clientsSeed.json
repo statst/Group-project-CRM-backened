@@ -1,0 +1,54 @@
+[
+	{
+		"_id": "1",
+		"firstname": "Steve",
+		"lastname": "Jackson",
+		"email": "email@email.com",
+		"address": "427 Hemi Ave.",
+		"city": "Somewhere",
+		"state": "ST",
+		"zip": "75001",
+		"phone": "123-456-7890",
+		"communications": ["123", "456"],
+		"transactions": ["789", "987"]
+	},
+	{
+		"_id": "2",
+		"firstname": "Joe",
+		"lastname": "Person",
+		"email": "email@email.com",
+		"address": "427 Hemi Ave.",
+		"city": "Somewhere",
+		"state": "ST",
+		"zip": "75001",
+		"phone": "123-456-7890",
+		"communications": ["123", "456"],
+		"transactions": ["789", "987"]
+	},
+	{
+		"_id": "3",
+		"firstname": "Jan",
+		"lastname": "Person",
+		"email": "email@email.com",
+		"address": "427 Hemi Ave.",
+		"city": "Somewhere",
+		"state": "ST",
+		"zip": "75001",
+		"phone": "123-456-7890",
+		"communications": ["123", "456"],
+		"transactions": ["789", "987"]
+	},
+	{
+		"_id": "4",
+		"firstname": "Stacy",
+		"lastname": "Person",
+		"email": "email@email.com",
+		"address": "427 Hemi Ave.",
+		"city": "Somewhere",
+		"state": "ST",
+		"zip": "75001",
+		"phone": "123-456-7890",
+		"communications": ["123", "456"],
+		"transactions": ["789", "987"]
+	}
+]
