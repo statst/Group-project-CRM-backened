@@ -1,0 +1,56 @@
+[
+    {
+        "_id": "1",
+        "firstname": "Rory",
+        "lastname": "Ellis",
+        "email": "rdellis1@gmail.com",
+        "password": "password1",
+        "communications": ["123", "456"],
+        "transactions": ["789", "987"]
+    },
+    {
+        "_id": "2",
+        "firstname": "TK",
+        "lastname": "Nguyen",
+        "email": "tkthedesigner@gmail.com",
+        "password": "password2",
+        "communications": [
+            "349",
+            "495"
+        ],
+        "transactions": [
+            "367",
+            "498"
+        ]
+    },
+    {
+        "_id": "3",
+        "firstname": "Foolan",
+        "lastname": "Bhosale",
+        "email": "foolanbhosale5@gmail.com",
+        "password": "password3",
+        "communications": [
+            "648",
+            "163"
+        ],
+        "transactions": [
+            "649",
+            "146"
+        ]
+    },
+    {
+        "_id": "4",
+        "firstname": "Jyoti",
+        "lastname": "Shinde",
+        "email": "jshindems@gmail.com",
+        "password": "password4",
+        "communications": [
+            "635",
+            "794"
+        ],
+        "transactions": [
+            "469",
+            "912"
+        ]
+    }
+]
