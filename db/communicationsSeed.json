@@ -1,0 +1,34 @@
+[
+	{
+		"_id": "1",
+		"subject": "Test Subject1",
+		"body": "I'm a test message body",
+		"date": "2020-05-15T16:00:00Z",
+		"user": ["1", "2"],
+		"client": ["3"]
+	},
+	{
+		"_id": "2",
+		"subject": "Test Subject2",
+		"body": "I'm a test message body",
+		"date": "2020-05-15T17:00:00Z",
+		"user": ["1", "2"],
+		"client": ["3"]
+	},
+	{
+		"_id": "3",
+		"subject": "Test Subject3",
+		"body": "I'm a test message body",
+		"date": "2020-05-15T18:00:00Z",
+		"user": ["1", "2"],
+		"client": ["3"]
+	},
+	{
+		"_id": "4",
+		"subject": "Test Subject4",
+		"body": "I'm a test message body",
+		"date": "2020-05-15T19:00:00Z",
+		"user": ["1", "2"],
+		"client": ["3"]
+	}
+]
