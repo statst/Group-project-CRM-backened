@@ -1,0 +1,90 @@
+[
+	{
+		"PRODUCT_ID": 1214,
+		"PRODUCT_NAME": "Magico A3",
+		"PRODUCT_CODE": "MAG-A3",
+		"PRODUCT_SKU": "8120725247",
+		"DESCRIPTION": "Loud Speaker",
+		"PRODUCT_FAMILY": "3 Ways Floor Standing",
+		"PRODUCT_IMAGE_URL": "string",
+		"CURRENCY_CODE": "USD",
+		"DEFAULT_PRICE": 10000,
+		"DATE_CREATED_UTC": "2020-05-16T00:00:26.868Z",
+		"DATE_UPDATED_UTC": "2020-05-16T00:00:26.868Z",
+		"CREATED_USER_ID": 0,
+		"OWNER_USER_ID": 0,
+		"ACTIVE": true,
+		"CUSTOMFIELDS": [
+			{
+				"FIELD_NAME": "string",
+				"FIELD_VALUE": {}
+			}
+		]
+	},
+	{
+		"PRODUCT_ID": 1215,
+		"PRODUCT_NAME": "Magico A1",
+		"PRODUCT_CODE": "MAG-A1",
+		"PRODUCT_SKU": "8120725222",
+		"DESCRIPTION": "Loud Speaker",
+		"PRODUCT_FAMILY": "2 Ways Bookshelf",
+		"PRODUCT_IMAGE_URL": "string",
+		"CURRENCY_CODE": "USD",
+		"DEFAULT_PRICE": 7000,
+		"DATE_CREATED_UTC": "2020-05-16T00:00:26.868Z",
+		"DATE_UPDATED_UTC": "2020-05-16T00:00:26.868Z",
+		"CREATED_USER_ID": 0,
+		"OWNER_USER_ID": 0,
+		"ACTIVE": true,
+		"CUSTOMFIELDS": [
+			{
+				"FIELD_NAME": "string",
+				"FIELD_VALUE": {}
+			}
+		]
+	},
+	{
+		"PRODUCT_ID": 1217,
+		"PRODUCT_NAME": "Magico M6",
+		"PRODUCT_CODE": "MAG-M6",
+		"PRODUCT_SKU": "8120725333",
+		"DESCRIPTION": "Loud Speaker",
+		"PRODUCT_FAMILY": "3 Ways Floor Standing",
+		"PRODUCT_IMAGE_URL": "string",
+		"CURRENCY_CODE": "USD",
+		"DEFAULT_PRICE": 80000,
+		"DATE_CREATED_UTC": "2020-05-16T00:00:26.868Z",
+		"DATE_UPDATED_UTC": "2020-05-16T00:00:26.868Z",
+		"CREATED_USER_ID": 0,
+		"OWNER_USER_ID": 0,
+		"ACTIVE": true,
+		"CUSTOMFIELDS": [
+			{
+				"FIELD_NAME": "string",
+				"FIELD_VALUE": {}
+			}
+		]
+	},
+	{
+		"PRODUCT_ID": 1222,
+		"PRODUCT_NAME": "Magico S7",
+		"PRODUCT_CODE": "MAG-S7",
+		"PRODUCT_SKU": "8120725115",
+		"DESCRIPTION": "Loud Speaker",
+		"PRODUCT_FAMILY": "3 Ways Floor Standing",
+		"PRODUCT_IMAGE_URL": "string",
+		"CURRENCY_CODE": "USD",
+		"DEFAULT_PRICE": 60000,
+		"DATE_CREATED_UTC": "2020-05-16T00:00:26.868Z",
+		"DATE_UPDATED_UTC": "2020-05-16T00:00:26.868Z",
+		"CREATED_USER_ID": 0,
+		"OWNER_USER_ID": 0,
+		"ACTIVE": true,
+		"CUSTOMFIELDS": [
+			{
+				"FIELD_NAME": "string",
+				"FIELD_VALUE": {}
+			}
+		]
+	}
+]
