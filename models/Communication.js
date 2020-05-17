@@ -1,7 +1,7 @@
 const mongoose = require('../db/connection');
 
 const CommunicationSchema = new mongoose.Schema({
-	_id: String,
+	id: String,
 	subject: String,
 	body: String,
 	date: Date,

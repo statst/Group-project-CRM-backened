@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 	res.redirect('/api/users');
 });
 app.use('/api/users', usersController);
-//app.use('api/clients', clientsController);
+app.use('/api/clients', clientsController);
 
 app.set('port', process.env.PORT || 8000);
 

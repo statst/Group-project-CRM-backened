@@ -6,7 +6,7 @@ const mongoURI = 'mongodb://localhost/crm';
 mongoose
 	.connect(mongoURI, { useNewUrlParser: true })
 	.then((instance) =>
-		console.log(`Connected to db${instance.connection[0].name}`)
+		console.log(`Connected to db${instance.connection.name}`)
 	)
 	.catch((error) => console.log('Connection failed:', error));
 

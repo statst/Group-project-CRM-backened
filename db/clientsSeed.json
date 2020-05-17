@@ -1,9 +1,9 @@
 [
 	{
-		"_id": "1",
+		"id": "1",
 		"firstname": "Steve",
 		"lastname": "Jackson",
-		"email": "email1@email.com",
+		"email": "SteveJ@gmail.com",
 		"address": "427 Hemi Ave.",
 		"city": "Somewhere",
 		"state": "ST",
@@ -13,10 +13,10 @@
 		"transactions": ["789", "987"]
 	},
 	{
-		"_id": "2",
+		"id": "2",
 		"firstname": "Joe",
-		"lastname": "Person",
-		"email": "email2@email.com",
+		"lastname": "Park",
+		"email": "JoeP@gmail.com",
 		"address": "425 Hemirone Ave.",
 		"city": "Fremont",
 		"state": "CA",
@@ -26,10 +26,10 @@
 		"transactions": ["789", "987"]
 	},
 	{
-		"_id": "3",
+		"id": "3",
 		"firstname": "Jan",
-		"lastname": "Person",
-		"email": "email3@email.com",
+		"lastname": "Wright",
+		"email": "JanW@gmail.com",
 		"address": "427 Harry Ave.",
 		"city": "San Francisco",
 		"state": "CA",
@@ -39,10 +39,10 @@
 		"transactions": ["789", "987"]
 	},
 	{
-		"_id": "4",
+		"id": "4",
 		"firstname": "Stacy",
-		"lastname": "Person",
-		"email": "email4@email.com",
+		"lastname": "Jackson",
+		"email": "StacyJ@gmail.com",
 		"address": "427 Ron Ave.",
 		"city": "Phoenix",
 		"state": "AZ",
