@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const {createUserToken} =require('../middleware/auth')
 
 const User = require('../models/User');
 
@@ -33,6 +34,14 @@ router.post('/', async (req, res) => {
 	// 	.then((user) => res.json(user))
 	// 	.catch((error) => console.log(error));
 });
+
+router.post('/signin', (req,res, next) =>{
+	User.findOne({email: req.body.email})
+	.then((user)=> createUserToken (req, user))
+	.then((token)=> res.json({token}))
+	.catch(next)
+})
+
 //route to edit user information
 router.put('/:email', (req, res) => {
 	User.findOneAndUpdate({ email: req.params.email }, req.body, {
