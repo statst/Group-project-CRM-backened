@@ -21,7 +21,7 @@ Client.deleteMany({}).then(() => {
 	return Client.collection.insertMany(clientsData);
 });
 
-//clear communication collection and insert communications data into collection
+//clear communication collection and insert communications data into user and client
 Communication.deleteMany({}).then(() => {
 	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
 		Client.findOne({ email: 'JoeP@gmail.com' }).then((client) => {
@@ -42,7 +42,7 @@ Communication.deleteMany({}).then(() => {
 	});
 });
 
-//clear transaction collection and insert transactions data into collections
+//clear transaction collection and insert transactions data into user and client
 Transaction.deleteMany({}).then(() => {
 	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
 		Client.findOne({ email: 'JoeP@gmail.com' }).then((client) => {
