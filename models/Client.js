@@ -8,7 +8,7 @@ const ClientSchema = new mongoose.Schema({
 	city: String,
 	state: String,
 	zip: Number,
-	phone: Number,
+	phone: String,
 	communications: [
 		{
 			ref: 'Communication',
