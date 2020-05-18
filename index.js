@@ -3,6 +3,7 @@ const cors = require('cors');
 const usersController = require('./controllers/users');
 const clientsController = require('./controllers/clients');
 const transactionController = require('./controllers/transactions')
+const communicationsController = require('./controllers/communications');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 app.use('/api/users', usersController);
 app.use('/api/clients', clientsController);
 app.use('/api/transactions', transactionController);
+app.use('/api/communications', communicationsController);
 
 
 app.set('port', process.env.PORT || 8000);
