@@ -27,7 +27,19 @@ const UserSchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 		},
 	],
-});
+},
+{
+	timestamps: true,
+	id: false,
+	toJSON: {
+		virtuals: true,
+		transform: (_doc, ret) => {
+			delete ret.password;
+			return ret;
+		}
+	}
+}
+);
 
 const User = mongoose.model('User', UserSchema);
 

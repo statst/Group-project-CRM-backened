@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
 
@@ -19,11 +20,18 @@ router.get('/:email', (req, res) => {
 });
 
 //route to create new user (create new account)
-router.post('/', (req, res) => {
-	const newUser = req.body;
-	User.create(newUser)
-		.then((user) => res.json(user))
-		.catch((error) => console.log(error));
+router.post('/', async (req, res) => {
+	try {
+		const password = await bcrypt.hash(req.body.password, 10);
+		const user = await User.create({ email: req.body.email, password });
+		res.status(201).json(user);
+	} catch (error) {
+		return next(error);
+	}
+	// const newUser = req.body;
+	// User.create(newUser)
+	// 	.then((user) => res.json(user))
+	// 	.catch((error) => console.log(error));
 });
 //route to edit user information
 router.put('/:email', (req, res) => {
