@@ -12,6 +12,13 @@ router.get('/:id', (req, res) => {
 		.then((tran) => res.json(tran))
 		.catch((error) => console.log(error));
 });
+
+router.get('/user/:userid', (req,res) => {
+    Transaction.find({ user: req.params.userid})
+    .then((tranlist) => res.json(tranlist))
+    .catch((error) => console.error);
+})
+
 router.post('/', (req, res) => {
 	const newTrans = req.body;
 	Transaction.create(newTrans)
