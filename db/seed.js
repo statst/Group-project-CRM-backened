@@ -23,22 +23,6 @@ Client.deleteMany({}).then(() => {
 
 //clear communication collection and insert communications data into collection
 Communication.deleteMany({}).then(() => {
-	console.log('delete all communications');
-	// const user = User.findOne({ email: 'rdellis1@gmail.com' });
-	// const client = Client.findOne({ email: 'SteveJ@gmail.com' });
-	// console.log('user', user)
-	// // console.log('client', client)
-	// Communication.create({
-	// 	subject: 'subject1',
-	// 	body: 'Body of Communication1',
-	// 	date: new Date(),
-	// }).then((comm) => {
-	// 	// console.log(comm);
-	// 	user.communications.push(comm);
-	// 	client.communications.push(comm);
-	// 	comm.user.push(user);
-	// 	comm.client.push(client);
-	// });
 	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
 		Client.findOne({ email: 'JoeP@gmail.com' }).then((client) => {
 			Communication.create({
@@ -53,19 +37,31 @@ Communication.deleteMany({}).then(() => {
 				comm.user.push(user);
 				comm.client.push(client);
 				comm.save();
-				console.log('comm', comm);
-				console.log('user', user);
-				console.log('client', client);
 			});
 		});
 	});
 });
 
 //clear transaction collection and insert transactions data into collections
-// Transaction.deleteMany({}).then(() => {
-// 	console.log('delete all transactions');
-// 	return Transaction.collection.insertMany(transactionsData);
-// });
+Transaction.deleteMany({}).then(() => {
+	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
+		Client.findOne({ email: 'JoeP@gmail.com' }).then((client) => {
+			Transaction.create({
+				product: 'product1',
+				price: 37.50,
+				date: new Date(),
+			}).then((tran) => {
+				user.transactions.push(tran);
+				user.save();
+				client.transactions.push(tran);
+				client.save();
+				tran.user.push(user);
+				tran.client.push(client);
+				tran.save();
+			});
+		});
+	});
+});
 
 //clear product collection and insert product data into collection
 // Product.deleteMany({})

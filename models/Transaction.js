@@ -2,7 +2,7 @@ const mongoose = require('../db/connection');
 
 const TransactionSchema = new mongoose.Schema({
 	product: String,
-	price: String,
+	price: Number,
 	date: Date,
 	user: [
 		{
