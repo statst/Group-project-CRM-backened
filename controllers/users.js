@@ -41,5 +41,5 @@ router.delete('/:email', (req, res) => {
 		.then((user) => res.json(user))
 		.catch((error) => console.log(error));
 });
-
+//comment for auth initial push
 module.exports = router;
