@@ -31,89 +31,60 @@ Communication.deleteMany({}).then(() => {
 				date: new Date(),
 			}).then((comm) => {
 				user.communications.push(comm);
-				user.save();
 				client.communications.push(comm);
-				client.save();
 				comm.user.push(user);
 				comm.client.push(client);
 				comm.save();
-			});
-		});
-	});
-	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
-		Client.findOne({ email: 'JanW@gmail.com' }).then((client) => {
+				console.log('first communication created');
+			})
 			Communication.create({
 				subject: 'subject2',
 				body: 'Body of Communication3',
 				date: new Date(),
 			}).then((comm) => {
 				user.communications.push(comm);
-				user.save();
 				client.communications.push(comm);
-				client.save();
 				comm.user.push(user);
 				comm.client.push(client);
 				comm.save();
-			});
-		});
-	});
-	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
-		Client.findOne({ email: 'StacyJ@gmail.com' }).then((client) => {
+			})
 			Communication.create({
 				subject: 'subject3',
 				body: 'Body of Communication3',
 				date: new Date(),
 			}).then((comm) => {
 				user.communications.push(comm);
-				user.save();
 				client.communications.push(comm);
-				client.save();
 				comm.user.push(user);
 				comm.client.push(client);
 				comm.save();
+				console.log('third communication created');
 			});
-		});
-	});
-});
-
-//clear transaction collection and insert transactions data into user and client
-Transaction.deleteMany({}).then(() => {
-	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
-		Client.findOne({ email: 'JoeP@gmail.com' }).then((client) => {
+			Transaction.deleteMany({});
 			Transaction.create({
 				product: 'product1',
 				price: 37.50,
 				date: new Date(),
 			}).then((tran) => {
 				user.transactions.push(tran);
-				user.save();
 				client.transactions.push(tran);
-				client.save();
 				tran.user.push(user);
 				tran.client.push(client);
 				tran.save();
-			});
-		});
-	});
-	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
-		Client.findOne({ email: 'SteveJ@gmail.com' }).then((client) => {
-			Transaction.create({
-				product: 'product2',
-				price: 90.5,
-				date: new Date(),
-			}).then((tran) => {
+				console.log('first transaction created');
+				});
+				Transaction.create({
+					product: 'product2',
+					price: 90.5,
+					date: new Date(),
+				}).then((tran) => {
 				user.transactions.push(tran);
-				user.save();
 				client.transactions.push(tran);
-				client.save();
 				tran.user.push(user);
 				tran.client.push(client);
 				tran.save();
+				console.log('second transaction created');
 			});
-		});
-	});
-	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
-		Client.findOne({ email: 'JoeP@gmail.com' }).then((client) => {
 			Transaction.create({
 				product: 'product3',
 				price: 12.5,
@@ -126,10 +97,66 @@ Transaction.deleteMany({}).then(() => {
 				tran.user.push(user);
 				tran.client.push(client);
 				tran.save();
+				console.log('third transaction created');
 			});
 		});
 	});
 });
+
+
+//clear transaction collection and insert transactions data into user and client
+// Transaction.deleteMany({}).then(() => {
+// 	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
+// 		Client.findOne({ email: 'JoeP@gmail.com' }).then((client) => {
+// 			Transaction.create({
+// 				product: 'product1',
+// 				price: 37.50,
+// 				date: new Date(),
+// 			}).then((tran) => {
+// 				user.transactions.push(tran);
+// 				client.transactions.push(tran);
+// 				tran.user.push(user);
+// 				tran.client.push(client);
+// 				tran.save();
+// 				console.log('first transaction created');
+// 			});
+// 		});
+// 	});
+// 	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
+// 		Client.findOne({ email: 'SteveJ@gmail.com' }).then((client) => {
+// 			Transaction.create({
+// 				product: 'product2',
+// 				price: 90.5,
+// 				date: new Date(),
+// 			}).then((tran) => {
+// 				user.transactions.push(tran);
+// 				client.transactions.push(tran);
+// 				tran.user.push(user);
+// 				tran.client.push(client);
+// 				tran.save();
+// 				console.log('second transaction created');
+// 			});
+// 		});
+// 	});
+// 	User.findOne({ email: 'rdellis1@gmail.com' }).then((user) => {
+// 		Client.findOne({ email: 'JoeP@gmail.com' }).then((client) => {
+// 			Transaction.create({
+// 				product: 'product3',
+// 				price: 12.5,
+// 				date: new Date(),
+// 			}).then((tran) => {
+// 				user.transactions.push(tran);
+// 				user.save();
+// 				client.transactions.push(tran);
+// 				client.save();
+// 				tran.user.push(user);
+// 				tran.client.push(client);
+// 				tran.save();
+// 				console.log('third transaction created');
+// 			});
+// 		});
+// 	});
+// });
 
 //clear product collection and insert product data into collection
 // Product.deleteMany({})
@@ -139,4 +166,4 @@ Transaction.deleteMany({}).then(() => {
 // 	})
 // 	.then(() => {
 // 		process.exit;
-// 	});
+// 	})
