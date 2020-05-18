@@ -1,6 +1,5 @@
 [
 	{
-		"id": "1",
 		"firstname": "Steve",
 		"lastname": "Jackson",
 		"email": "SteveJ@gmail.com",
@@ -8,12 +7,9 @@
 		"city": "Somewhere",
 		"state": "ST",
 		"zip": "75001",
-		"phone": "123-456-7890",
-		"communications": ["123", "456"],
-		"transactions": ["789", "987"]
+		"phone": "123-456-7890"
 	},
 	{
-		"id": "2",
 		"firstname": "Joe",
 		"lastname": "Park",
 		"email": "JoeP@gmail.com",
@@ -21,12 +17,9 @@
 		"city": "Fremont",
 		"state": "CA",
 		"zip": "94536",
-		"phone": "123-456-7890",
-		"communications": ["123", "456"],
-		"transactions": ["789", "987"]
+		"phone": "123-456-7890"
 	},
 	{
-		"id": "3",
 		"firstname": "Jan",
 		"lastname": "Wright",
 		"email": "JanW@gmail.com",
@@ -34,12 +27,9 @@
 		"city": "San Francisco",
 		"state": "CA",
 		"zip": "94016",
-		"phone": "123-456-7890",
-		"communications": ["123", "456"],
-		"transactions": ["789", "987"]
+		"phone": "123-456-7890"
 	},
 	{
-		"id": "4",
 		"firstname": "Stacy",
 		"lastname": "Jackson",
 		"email": "StacyJ@gmail.com",
@@ -47,8 +37,6 @@
 		"city": "Phoenix",
 		"state": "AZ",
 		"zip": "85001",
-		"phone": "123-456-7890",
-		"communications": ["123", "456"],
-		"transactions": ["789", "987"]
+		"phone": "123-456-7890"
 	}
 ]

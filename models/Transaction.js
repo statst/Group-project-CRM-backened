@@ -1,13 +1,7 @@
 const mongoose = require('../db/connection');
 
 const TransactionSchema = new mongoose.Schema({
-	id: String,
-	product: [
-		{
-			ref: 'Product',
-			type: mongoose.Schema.Types.ObjectId,
-		},
-	],
+	product: String,
 	price: String,
 	date: Date,
 	user: [

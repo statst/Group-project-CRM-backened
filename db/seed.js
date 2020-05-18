@@ -2,13 +2,13 @@ const User = require('../models/User');
 const Client = require('../models/Client');
 const Communication = require('../models/Communication');
 const Transaction = require('../models/Transaction');
-const Product = require('../models/Product');
+// const Product = require('../models/Product');
 
 const usersData = require('./usersSeed.json');
 const clientsData = require('./clientsSeed.json');
 const communicationsData = require('./communicationsSeed.json');
 const transactionsData = require('./transactionsSeed.json');
-const productsData = require('./productSeed.json');
+// const productsData = require('./productSeed.json');
 
 //clear users collection and insert user data into collection
 User.deleteMany({}).then(() => {
@@ -35,11 +35,11 @@ Transaction.deleteMany({}).then(() => {
 });
 
 //clear product collection and insert product data into collection
-Product.deleteMany({})
-	.then(() => {
-		console.log('delete all products');
-		return Product.collection.insertMany(productsData);
-	})
-	.then(() => {
-		process.exit;
-	});
+// Product.deleteMany({})
+// 	.then(() => {
+// 		console.log('delete all products');
+// 		return Product.collection.insertMany(productsData);
+// 	})
+// 	.then(() => {
+// 		process.exit;
+// 	});

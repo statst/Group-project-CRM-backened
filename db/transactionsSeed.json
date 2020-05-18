@@ -1,43 +1,33 @@
 [
     {
-        "id": "1",
         "product": "Product1",
         "price": "37.50",
         "date": "2020-05-15T19:00:00Z",
-        "user": ["3","2"],
-        "client": "3"
+        "user": ["5ec29b269cd0dacc43463db3", "5ec29b269cd0dacc43463db4"],
+		"client": ["5ec29b269cd0dacc43463db0"]
     },
     {
         "id": "2",
         "product": "Product2",
         "price": "125.60",
         "date": "2020-05-15T19:00:00Z",
-        "user": [
-            "3",
-            "2"
-        ],
-        "client": "3"
+		"user": ["5ec29b269cd0dacc43463db2", "5ec29b269cd0dacc43463db1"],
+		"client": ["5ec29b269cd0dacc43463daf"]
     },
     {
         "id": "3",
         "product": "Product3",
         "price": "1006.50",
         "date": "2020-05-15T19:00:00Z",
-        "user": [
-            "3",
-            "2"
-        ],
-        "client": "3"
+		"user": ["5ec29b269cd0dacc43463db1"],
+		"client": ["5ec29b269cd0dacc43463dae"]
     },
     {
         "id": "4",
         "product": "Product4",
         "price": "12.37",
         "date": "2020-05-15T19:00:00Z",
-        "user": [
-            "3",
-            "2"
-        ],
-        "client": "3"
+		"user": ["5ec29b269cd0dacc43463db2"],
+		"client": ["5ec29b269cd0dacc43463dad"]
     }
 ]

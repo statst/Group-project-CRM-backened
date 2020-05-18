@@ -1,7 +1,6 @@
 const mongoose = require('../db/connection');
 
 const ClientSchema = new mongoose.Schema({
-	id: String,
 	firstname: String,
 	lastname: String,
 	email: String,
