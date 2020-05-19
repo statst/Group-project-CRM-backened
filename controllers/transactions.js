@@ -12,16 +12,17 @@ router.get('/', requireToken, (req, res) => {
 		.then((trans) => res.json(trans))
 		.catch((error) => console.log(error));
 });
-router.get('/:id', requireToken, (req, res) => {
-	Transaction.findById({ _id: req.params.id })
-		.then((tran) => res.json(tran))
-		.catch((error) => console.log(error));
-});
 
 router.get('/user/:userid', handleValidateId, requireToken, (req, res) => {
 	Transaction.find({ user: req.params.userid })
 		.then((tranlist) => res.json(tranlist))
 		.catch((error) => console.error);
+});
+
+router.get('/:id', requireToken, (req, res) => {
+	Transaction.findById({ _id: req.params.id })
+		.then((tran) => res.json(tran))
+		.catch((error) => console.log(error));
 });
 
 router.post('/', requireToken, (req, res) => {
