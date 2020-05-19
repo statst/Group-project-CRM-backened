@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Transaction = require('../models/Transaction');
 const User = require('../models/User')
+const Client = require('../models/Client')
 const {
 	handleValidateId,
 	handleRecordExists,
@@ -28,12 +29,24 @@ router.get('/:id', requireToken, (req, res) => {
 
 router.post('/', requireToken, (req, res) => {
 	const newTrans = req.body;
-	Transaction.create(newTrans)
-		.then((tran) => {
-			// User.findOneAndUpdate({ _id: { tran.user }})
-			res.json(tran);
+	const userId = req.body.user;
+	const clientId = req.body.client;
+
+	User.findById(userId)
+	.then((user) => {
+		Client.findById(clientId)
+		.then((client) => {
+			Transaction.create(newTrans)
+			.then((tran) => {
+				user.transactions.push(tran);
+				client.transactions.push(tran);
+				user.save();
+				client.save();
+				tran.save();
+				res.json(tran);
+			})
 		})
-		.catch((error) => console.log(error));
+	}).catch((error) => console.log(error));
 });
 router.put('/:id', handleValidateId, requireToken, (req, res) => {
 	console.log(req.params._id);

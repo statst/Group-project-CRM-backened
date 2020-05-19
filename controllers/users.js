@@ -21,7 +21,7 @@ router.get('/:email', requireToken, (req, res) => {
 });
 
 //route to create new user (create new account)
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
 	try {
 		const password = await bcrypt.hash(req.body.password, 10);
 		const user = await User.create({ firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, password });
