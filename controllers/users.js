@@ -5,6 +5,7 @@ const { createUserToken } = require('../middleware/auth');
 const { requireToken } = require('../middleware/auth');
 
 const User = require('../models/User');
+const Transaction = require('../models/Transaction');
 
 //route to get all users
 router.get('/', requireToken, (req, res) => {
@@ -19,6 +20,16 @@ router.get('/:email', requireToken, (req, res) => {
 		.then((user) => res.json(user))
 		.catch((error) => console.log(error));
 });
+
+//route to get transactions by user
+router.get('/:email/transactions', requireToken, (req, res) => {
+	User.findOne({ email: req.params.email })
+		.then((user) => {
+				Transaction.find({ _id: { $in: user.transactions } })
+				.then((tranList) => res.json(tranList))
+		})
+		.catch((error) => console.log(error));
+})
 
 //route to create new user (create new account)
 router.post('/', async (req, res, next) => {
