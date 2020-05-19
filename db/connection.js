@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
-const mongoURI = 'mongodb://localhost/crm';
+const mongoURI =
+	process.env.NODE_ENV === 'production'
+		? process.env.DB_URL
+		: 'mongodb://localhost/crm';
 
 mongoose
 	.connect(mongoURI, {

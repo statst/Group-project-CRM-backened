@@ -25,4 +25,6 @@ app.use((err, req, res, next) => {
 
 app.set('port', process.env.PORT || 8000);
 
-app.listen(8000, () => console.log(`Server is running on port 8000`));
+app.listen(app.get('port'), () => {
+	console.log(`✅ PORT: ${app.get('port')} 🌟`);
+});
