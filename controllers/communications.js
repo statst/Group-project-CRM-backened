@@ -26,7 +26,7 @@ router.get('/user/:id', handleValidateId, requireToken, (req, res) => {
 });
 
 router.post('/', requireToken, (req, res) => {
-	const newTrans = req.body;
+	const newComm = req.body;
 	Communication.create(newComm)
 		.then((comm) => {
 			res.json(comm);
