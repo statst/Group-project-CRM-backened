@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 // Create a secret to be used to encrypt/decrypt the token
 
 const secret =
-	process.env.JWT_SECRET || 'essentialcrm';
+	process.env.JWT_SECRET;
 
 const { Strategy, ExtractJwt } = require('passport-jwt');
 
