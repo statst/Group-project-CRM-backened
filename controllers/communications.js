@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Communication = require('../models/Communication');
+const User = require('../models/User');
+const Client = require('../models/Client');
 const {
 	handleValidateId,
 	handleRecordExists,
@@ -27,10 +29,25 @@ router.get('/user/:id', handleValidateId, requireToken, (req, res) => {
 
 router.post('/', requireToken, (req, res) => {
 	const newComm = req.body;
-	Communication.create(newComm)
-		.then((comm) => {
-			res.json(comm);
+	const userId = req.body.user;
+	const clientId = req.body.client;
+
+	User.findById(userId)
+	.then((user) => {
+		Client.findById(clientId)
+		.then((client) => {
+			Communication.create(newComm)
+			.then((comm) => {
+				user.communications.push(comm);
+				client.communications.push(comm);
+				user.save();
+				client.save();
+				comm.save();
+				res.json(comm);
+			});
 		})
+	})
+	
 		.catch((error) => console.log(error));
 });
 router.put('/:id', handleValidateId, requireToken, (req, res) => {
