@@ -15,11 +15,12 @@ router.get('/', requireToken, (req, res) => {
 		.catch((error) => console.log(error));
 });
 
-router.get('/user/:userid', handleValidateId, requireToken, (req, res) => {
-	Transaction.find({ user: req.params.userid })
-		.then((tranlist) => res.json(tranlist))
-		.catch((error) => console.error);
-});
+//moved this functionality to users.js controller
+// router.get('/user/:userid', handleValidateId, requireToken, (req, res) => {
+// 	Transaction.find({ user: req.params.userid })
+// 		.then((tranlist) => res.json(tranlist))
+// 		.catch((error) => console.error);
+// });
 
 router.get('/:id', requireToken, (req, res) => {
 	Transaction.findById({ _id: req.params.id })
