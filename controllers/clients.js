@@ -39,7 +39,7 @@ router.put('/:email', requireToken, (req, res) => {
 
 //route to delete client
 //find client by email and delete
-router.delete('/:email',requireToken (req, res) => {
+router.delete('/:email',requireToken, (req, res) => {
 	Client.findOneAndDelete({ email: req.params.email })
 		.then(handleRecordExists)
 		.then((client) => res.json())
