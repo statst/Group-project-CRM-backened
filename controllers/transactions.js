@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Transaction = require('../models/Transaction');
+const {
+	handleValidateId,
+	handleRecordExists,
+	handleValidateOwnership,
+} = require('../middleware/custom_errors');
+const { requireToken } = require('../middleware/auth');
 
 router.get('/', (req, res) => {
 	Transaction.find({})
@@ -13,13 +19,13 @@ router.get('/:id', (req, res) => {
 		.catch((error) => console.log(error));
 });
 
-router.get('/user/:userid', (req,res) => {
-    Transaction.find({ user: req.params.userid})
-    .then((tranlist) => res.json(tranlist))
-    .catch((error) => console.error);
-})
+router.get('/user/:userid', (req, res) => {
+	Transaction.find({ user: req.params.userid })
+		.then((tranlist) => res.json(tranlist))
+		.catch((error) => console.error);
+});
 
-router.post('/', (req, res) => {
+router.post('/', requireToken, (req, res) => {
 	const newTrans = req.body;
 	Transaction.create(newTrans)
 		.then((tran) => {
@@ -27,7 +33,7 @@ router.post('/', (req, res) => {
 		})
 		.catch((error) => console.log(error));
 });
-router.put('/:id', (req, res) => {
+router.put('/:id', handleValidateId, requireToken, (req, res) => {
 	console.log(req.params._id);
 	Transaction.findByIdAndUpdate({ _id: req.params.id }, req.body, {
 		new: true,
@@ -35,7 +41,7 @@ router.put('/:id', (req, res) => {
 		.then((tran) => res.json(tran))
 		.catch((error) => console.log(error));
 });
-router.delete('/:id', (req, res) => {
+router.delete('/:id', handleValidateId, requireToken, (req, res) => {
 	Transaction.findByIdAndDelete({ _id: req.params.id })
 		.then((tran) => res.json(tran))
 		.catch((error) => console.log(error));

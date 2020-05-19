@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Communication = require('../models/Communication');
+const {
+	handleValidateId,
+	handleRecordExists,
+	handleValidateOwnership,
+} = require('../middleware/custom_errors');
+const { requireToken } = require('../middleware/auth');
 
 router.get('/', (req, res) => {
 	Communication.find({})
@@ -19,7 +25,7 @@ router.get('/user/:userid', (req, res) => {
 		.catch((error) => console.error);
 });
 
-router.post('/', (req, res) => {
+router.post('/', requireToken, (req, res) => {
 	const newTrans = req.body;
 	Communication.create(newComm)
 		.then((comm) => {
@@ -27,7 +33,7 @@ router.post('/', (req, res) => {
 		})
 		.catch((error) => console.log(error));
 });
-router.put('/:id', (req, res) => {
+router.put('/:id', handleValidateId, requireToken, (req, res) => {
 	console.log(req.params._id);
 	Communication.findByIdAndUpdate({ _id: req.params.id }, req.body, {
 		new: true,
@@ -35,7 +41,7 @@ router.put('/:id', (req, res) => {
 		.then((comm) => res.json(comm))
 		.catch((error) => console.log(error));
 });
-router.delete('/:id', (req, res) => {
+router.delete('/:id', handleValidateId, requireToken, (req, res) => {
 	Communication.findByIdAndDelete({ _id: req.params.id })
 		.then((comm) => res.json(comm))
 		.catch((error) => console.log(error));
