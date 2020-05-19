@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Transaction = require('../models/Transaction');
+const User = require('../models/User')
 const {
 	handleValidateId,
 	handleRecordExists,
@@ -29,6 +30,7 @@ router.post('/', requireToken, (req, res) => {
 	const newTrans = req.body;
 	Transaction.create(newTrans)
 		.then((tran) => {
+			// User.findOneAndUpdate({ _id: { tran.user }})
 			res.json(tran);
 		})
 		.catch((error) => console.log(error));

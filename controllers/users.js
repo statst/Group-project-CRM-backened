@@ -24,7 +24,7 @@ router.get('/:email', requireToken, (req, res) => {
 router.post('/', async (req, res) => {
 	try {
 		const password = await bcrypt.hash(req.body.password, 10);
-		const user = await User.create({ email: req.body.email, password });
+		const user = await User.create({ firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, password });
 		res.status(201).json(user);
 	} catch (error) {
 		return next(error);
