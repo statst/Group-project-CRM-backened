@@ -2,18 +2,19 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const { createUserToken } = require('../middleware/auth');
+const { requireToken } = require('../middleware/auth');
 
 const User = require('../models/User');
 
 //route to get all users
-router.get('/', (req, res) => {
+router.get('/', requireToken, (req, res) => {
 	User.find()
 		.then((users) => res.json(users))
 		.catch((error) => console.log(error));
 });
 
 //route to get user by email l
-router.get('/:email', (req, res) => {
+router.get('/:email', requireToken, (req, res) => {
 	User.findOne({ email: req.params.email })
 		.then((user) => res.json(user))
 		.catch((error) => console.log(error));
@@ -38,7 +39,7 @@ router.post('/signin', (req, res, next) => {
 });
 
 //route to edit user information
-router.put('/:email', (req, res) => {
+router.put('/:email', requireToken, (req, res) => {
 	User.findOneAndUpdate({ email: req.params.email }, req.body, {
 		new: true,
 	})
@@ -48,7 +49,7 @@ router.put('/:email', (req, res) => {
 
 //route to delete account by email
 //find email and delete
-router.delete('/:email', (req, res) => {
+router.delete('/:email', requireToken, (req, res) => {
 	User.findOneAndDelete({ email: req.params.email })
 		.then((user) => res.json(user))
 		.catch((error) => console.log(error));

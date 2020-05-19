@@ -8,19 +8,19 @@ const {
 } = require('../middleware/custom_errors');
 const { requireToken } = require('../middleware/auth');
 
-router.get('/', (req, res) => {
+router.get('/', requireToken, (req, res) => {
 	Communication.find({})
 		.then((comms) => res.json(comms))
 		.catch((error) => console.log(error));
 });
-router.get('/:id', (req, res) => {
+router.get('/:id', requireToken, (req, res) => {
 	Communication.findById({ _id: req.params.id })
 		.then((comm) => res.json(comm))
 		.catch((error) => console.log(error));
 });
 
-router.get('/user/:userid', (req, res) => {
-	Communication.find({ user: req.params.userid })
+router.get('/user/:id', handleValidateId, requireToken, (req, res) => {
+	Communication.find({ user: req.params.id })
 		.then((commlist) => res.json(commlist))
 		.catch((error) => console.error);
 });

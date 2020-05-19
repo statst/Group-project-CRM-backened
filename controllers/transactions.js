@@ -4,22 +4,21 @@ const Transaction = require('../models/Transaction');
 const {
 	handleValidateId,
 	handleRecordExists,
-	handleValidateOwnership,
 } = require('../middleware/custom_errors');
 const { requireToken } = require('../middleware/auth');
 
-router.get('/', (req, res) => {
+router.get('/', requireToken, (req, res) => {
 	Transaction.find({})
 		.then((trans) => res.json(trans))
 		.catch((error) => console.log(error));
 });
-router.get('/:id', (req, res) => {
+router.get('/:id', requireToken, (req, res) => {
 	Transaction.findById({ _id: req.params.id })
 		.then((tran) => res.json(tran))
 		.catch((error) => console.log(error));
 });
 
-router.get('/user/:userid', (req, res) => {
+router.get('/user/:userid', handleValidateId, requireToken, (req, res) => {
 	Transaction.find({ user: req.params.userid })
 		.then((tranlist) => res.json(tranlist))
 		.catch((error) => console.error);
