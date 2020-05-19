@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.get('/', (req, res) => {
-	res.redirect('/api/users');
+	res.send('connected');
 });
 app.use('/api/users', usersController);
 app.use('/api/clients', clientsController);
