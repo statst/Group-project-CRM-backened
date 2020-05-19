@@ -1,19 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const {createUserToken} =require('../middleware/auth')
+const { createUserToken } = require('../middleware/auth');
 
 const User = require('../models/User');
 
-//route to get all users path in postman /api/users
+//route to get all users
 router.get('/', (req, res) => {
-	console.log(User);
 	User.find()
 		.then((users) => res.json(users))
 		.catch((error) => console.log(error));
 });
 
-//route to get user by email path in postman /api/users/email
+//route to get user by email l
 router.get('/:email', (req, res) => {
 	User.findOne({ email: req.params.email })
 		.then((user) => res.json(user))
@@ -29,18 +28,14 @@ router.post('/', async (req, res) => {
 	} catch (error) {
 		return next(error);
 	}
-	// const newUser = req.body;
-	// User.create(newUser)
-	// 	.then((user) => res.json(user))
-	// 	.catch((error) => console.log(error));
 });
 
-router.post('/signin', (req,res, next) =>{
-	User.findOne({email: req.body.email})
-	.then((user)=> createUserToken (req, user))
-	.then((token)=> res.json({token}))
-	.catch(next)
-})
+router.post('/signin', (req, res, next) => {
+	User.findOne({ email: req.body.email })
+		.then((user) => createUserToken(req, user))
+		.then((token) => res.json({ token }))
+		.catch(next);
+});
 
 //route to edit user information
 router.put('/:email', (req, res) => {

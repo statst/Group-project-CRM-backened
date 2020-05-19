@@ -60,6 +60,7 @@ Communication.deleteMany({}).then(() => {
 				comm.save();
 				console.log('third communication created');
 			});
+			//clear transaction collection and insert transaction data into user and client
 			Transaction.deleteMany({});
 			Transaction.create({
 				product: 'product1',
