@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Client = require('../models/Client');
+const Transaction = require('../models/Transaction');
+const Communication = require('../models/Communication');
 
 const { handleRecordExists } = require('../middleware/custom_errors');
 const { requireToken } = require('../middleware/auth');
@@ -18,6 +20,26 @@ router.get('/:email', requireToken, (req, res) => {
 		.then((client) => res.json(client))
 		.catch((error) => console.log(error));
 });
+
+//route to get transactions by client
+router.get('/:email/transactions', requireToken, (req, res) => {
+	Client.findOne({ email: req.params.email })
+		.then((client) => {
+				Transaction.find({ _id: { $in: client.transactions } })
+				.then((tranList) => res.json(tranList))
+		})
+		.catch((error) => console.log(error));
+})
+
+//route to get communications by client
+router.get('/:email/communications', requireToken, (req, res) => {
+	Client.findOne({ email: req.params.email })
+		.then((client) => {
+				Communication.find({ _id: { $in: client.communications } })
+				.then((commList) => res.json(commList))
+		})
+		.catch((error) => console.log(error));
+})
 
 //route to create new client
 router.post('/', requireToken, (req, res) => {
