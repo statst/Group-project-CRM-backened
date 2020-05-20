@@ -6,6 +6,7 @@ const { requireToken } = require('../middleware/auth');
 
 const User = require('../models/User');
 const Transaction = require('../models/Transaction');
+const Communication = require('../models/Communication');
 
 //route to get all users
 router.get('/', requireToken, (req, res) => {
@@ -27,6 +28,16 @@ router.get('/:email/transactions', requireToken, (req, res) => {
 		.then((user) => {
 				Transaction.find({ _id: { $in: user.transactions } })
 				.then((tranList) => res.json(tranList))
+		})
+		.catch((error) => console.log(error));
+})
+
+//route to get communications by user
+router.get('/:email/communications', requireToken, (req, res) => {
+	User.findOne({ email: req.params.email })
+		.then((user) => {
+				Communication.find({ _id: { $in: user.communications } })
+				.then((commList) => res.json(commList))
 		})
 		.catch((error) => console.log(error));
 })
