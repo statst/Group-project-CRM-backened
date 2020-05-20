@@ -21,11 +21,12 @@ router.get('/:id', requireToken, (req, res) => {
 		.catch((error) => console.log(error));
 });
 
-router.get('/user/:id', handleValidateId, requireToken, (req, res) => {
-	Communication.find({ user: req.params.id })
-		.then((commlist) => res.json(commlist))
-		.catch((error) => console.error);
-});
+//moved this functionality to users.js controller
+// router.get('/user/:id', handleValidateId, requireToken, (req, res) => {
+// 	Communication.find({ user: req.params.id })
+// 		.then((commlist) => res.json(commlist))
+// 		.catch((error) => console.error);
+// });
 
 router.post('/', requireToken, (req, res) => {
 	const newComm = req.body;
