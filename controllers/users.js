@@ -45,6 +45,7 @@ router.get('/:email/communications', requireToken, (req, res) => {
 //route to create new user (create new account)
 router.post('/', async (req, res, next) => {
 	try {
+		console.log('req.body:', req.body);
 		const password = await bcrypt.hash(req.body.password, 10);
 		const user = await User.create({ firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, password });
 		res.status(201).json(user);
