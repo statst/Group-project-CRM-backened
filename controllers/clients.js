@@ -11,6 +11,8 @@ const { requireToken } = require('../middleware/auth');
 router.get('/', requireToken, (req, res) => {
 	Client.find({})
 		.then((clients) => res.json(clients))
+		// Hou comment: instead of calling console.log on the error, you might want to pass it along to the next function in the middleware by calling next on error. This comment applies error handling to all controllers.
+		// .catch(next);
 		.catch((error) => console.log(error));
 });
 //route to get clients by email

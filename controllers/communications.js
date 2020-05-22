@@ -13,6 +13,8 @@ const { requireToken } = require('../middleware/auth');
 router.get('/', requireToken, (req, res) => {
 	Communication.find({})
 		.then((comms) => res.json(comms))
+		// Hou comment: instead of calling console.log on the error, you might want to pass it along to the next function in the middleware by calling next on error
+		// .catch(next);
 		.catch((error) => console.log(error));
 });
 router.get('/:id', requireToken, (req, res) => {
@@ -21,14 +23,24 @@ router.get('/:id', requireToken, (req, res) => {
 		.catch((error) => console.log(error));
 });
 
-//moved this functionality to users.js controller
-// router.get('/user/:id', handleValidateId, requireToken, (req, res) => {
-// 	Communication.find({ user: req.params.id })
-// 		.then((commlist) => res.json(commlist))
-// 		.catch((error) => console.error);
-// });
-
 router.post('/', requireToken, (req, res) => {
+	// // Hou comment: you could use async/await to refactor lines 40 - 60
+	// try {
+	// 	const user = await User.findById(req.body.user);
+	// 	const client = await Client.findById(req.body.client);
+	// 	const comm = await Communication.create(req.body);
+		
+	// 	user.communications.push(comm);
+	// 	client.communications.push(comm);
+
+	// 	user.save();
+	// 	client.save();
+	// 	comm.save();
+	// 	res.json(comm);
+	// } catch(error) {
+	// 	next(error);
+	// }
+
 	const newComm = req.body;
 	const userId = req.body.user;
 	const clientId = req.body.client;
@@ -48,10 +60,10 @@ router.post('/', requireToken, (req, res) => {
 			});
 		})
 	})
-	
-		.catch((error) => console.log(error));
+	.catch((error) => console.log(error));
 });
 router.put('/:id', handleValidateId, requireToken, (req, res) => {
+	// Hou comment: make sure to remove debugging code from your codebase
 	console.log(req.params._id);
 	Communication.findByIdAndUpdate({ _id: req.params.id }, req.body, {
 		new: true,
