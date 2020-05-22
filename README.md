@@ -37,6 +37,7 @@ essentialCRM is a Customer Relationship Management tool designed to provide a si
 - If you wish to run this application locally, or make edits to it, you can find instructions for forking and cloning the repository here. https://help.github.com/en/github/getting-started-with-github/fork-a-repo
 - You will also need to run a local MongoDB Community Server. https://www.mongodb.com/download-center/community
 - Install dependencies in your cloned directory with `npm install`
+- Create a .env file in the root directory with a variable JWT_SECRET=anyrandomstring
 - Run the application with `npm start`
 
 # Supported Endpoints
