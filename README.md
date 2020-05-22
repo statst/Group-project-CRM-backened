@@ -7,7 +7,7 @@ essentialCRM is a Customer Relationship Management tool designed to provide a si
 # Deployed Applications
 
 - Backend - https://glacial-sands-49555.herokuapp.com/
-- Frontend - https://essentialcrm323.herokuapp.com/
+- Frontend - https://essentialcrm.herokuapp.com/
 
 # Github Repositories
 
