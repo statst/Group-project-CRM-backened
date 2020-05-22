@@ -1,4 +1,5 @@
-// Hou comment
+// Hou comment: really awesome job writing these tests! Make sure to leave a note in the README 
+// on how to run these tests!
 const should = require('chai').should();
 const expect = require('chai').expect;
 const supertest = require('supertest');
@@ -26,6 +27,7 @@ const userCredentials = {
 };
 describe('POST /users/signin', () => {
 	//before test any route, sign in and save token
+	// Hou comment: great job figuring out how to test protected routes!
 	before((done) => {
 		api
 			.post('/users/signin')
